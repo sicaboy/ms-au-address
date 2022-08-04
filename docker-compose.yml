@@ -19,7 +19,6 @@ services:
     build:
       context: ./
       dockerfile: initiator.Dockerfile
-    restart: always
     environment:
       - ELASTIC_PORT=9200
       - ELASTIC_HOST=es01
