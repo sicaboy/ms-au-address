@@ -24,6 +24,13 @@ services:
       - ELASTIC_PORT=9200
       - ELASTIC_HOST=es01
       - NODE_ENV=production
+      - ADDRESSR_INDEX_TIMEOUT=30s
+      - ADDRESSR_INDEX_BACKOFF=1000
+      - ADDRESSR_INDEX_BACKOFF_INCREMENT=1000
+      - ADDRESSR_INDEX_BACKOFF_MAX=10000
+      #- ADDRESSR_ENABLE_GEO=1
+      #- NODE_OPTIONS=--max_old_space_size=8196
+      #- COVERED_STATES=VIC,SA,NSW
     networks:
       - caddy
 
