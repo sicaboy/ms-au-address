@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  ms-au-address-app:
+    build:
+      context: ./
+      dockerfile: app.Dockerfile
+    restart: always
+    environment:
+      - ELASTIC_PORT=9200
+      - ELASTIC_HOST=es01
+      - NODE_ENV=production
+    ports:
+      - '8028:8080'
+    networks:
+      - caddy
+
+  ms-au-address-initiator:
+    build:
+      context: ./
+      dockerfile: initiator.Dockerfile
+    restart: always
+    environment:
+      - ELASTIC_PORT=9200
+      - ELASTIC_HOST=es01
+      - NODE_ENV=production
+    networks:
+      - caddy
+
+#  es01:
+#    image: docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+#    container_name: es01
+#    environment:
+#      - discovery.type=single-node
+#      - bootstrap.memory_lock=true
+#      - xpack.security.enabled=false
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    volumes:
+#      - ./docker/esdata1:/usr/share/elasticsearch/data
+#    ports:
+#      - "9200:9200"
+#    networks:
+#      - caddy
+
+networks:
+  caddy:
+    external: true

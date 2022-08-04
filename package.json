@@ -1,0 +1,24 @@
+{
+  "name": "ms-au-address",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@mountainpass/addressr": "^1.0.265"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node node_modules/\\@mountainpass/addressr/lib/bin/addressr-server-2.js",
+    "loader": "node node_modules/\\@mountainpass/addressr/lib/bin/addressr-loader.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sicaboy/ms-au-address.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sicaboy/ms-au-address/issues"
+  },
+  "homepage": "https://github.com/sicaboy/ms-au-address#readme"
+}
